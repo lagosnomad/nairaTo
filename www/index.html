@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+</head>
+
+<body ng-app="starter">
+    <ion-nav-view>
+        <ion-content class="calm-bg " ng-controller="currentRatesCtrl">
+            <ion-slide-box on-slide-changed="slideHasChanged($index)">
+                <ion-slide>
+                    <div ng-if="errorMessage" class="text-center" style="margin-top:7cm; margin-bottom:8cm">
+                        {{errorMessage}}
+                    </div>
+                    <div ng-if="loading" class="text-center" style="margin-top:7cm; margin-bottom:8cm">
+                        <ion-spinner></ion-spinner><br>{{loadingMessage}}
+                    </div>
+                    <div ng-if="rates" class="text-center" style="margin-top:7cm; margin-bottom:8cm">
+                        <h1 style="color:#ccccff">#{{rates.usd}}</h1>
+                        <h6>1 USD</h6>
+                    </div>
+                </ion-slide>
+                <ion-slide>
+                    <div ng-if="errorMessage" class="text-center" style="margin-top:7cm; margin-bottom:8cm">
+                        {{errorMessage}}
+                    </div>
+                    <div ng-if="loading" class="text-center" style="margin-top:7cm; margin-bottom:8cm">
+                        <ion-spinner></ion-spinner><br>{{loadingMessage}}
+                    </div>
+                    <div ng-if="rates" class="text-center" style="margin-top:7cm; margin-bottom:8cm">
+                        <h1 style="color:#ccccff">#{{rates.gbp}}</h1>
+                        <h6>1 GBP</h6>
+                    </div>
+                </ion-slide>
+                <ion-slide>
+                    <div ng-if="errorMessage" class="text-center" style="margin-top:7cm; margin-bottom:8cm">
+                        {{errorMessage}}
+                    </div>
+                    <div ng-if="loading" class="text-center" style="margin-top:7cm; margin-bottom:8cm">
+                        <ion-spinner></ion-spinner><br>{{loadingMessage}}
+                    </div>
+                    <div ng-if="rates" class="text-center" style="margin-top:7cm; margin-bottom:8cm">
+                        <h1 style="color:#ccccff">#{{rates.eur}}</h1>
+                        <h6>1 EUR</h6>
+                    </div>
+                </ion-slide>
+            </ion-slide-box>
+        </ion-content>
+    </ion-nav-view>
+</body>
+
+</html>
